@@ -16,4 +16,6 @@ public interface DiscountService<T extends Discount<?>> {
     void updateById(UUID uuid, T entity);
 
     void deleteById(UUID uuid);
+
+    Optional<T> findBestDiscountFor(UUID productId, int quantity);
 }

@@ -40,4 +40,11 @@ public class ValueDiscountService implements DiscountService<ValueDiscount> {
     public void deleteById(UUID uuid) {
         repository.deleteById(uuid);
     }
+
+    @Override
+    public Optional<ValueDiscount> findBestDiscountFor(UUID productId, int quantity) {
+        return repository.findByProductIdAndQuantityOrderedByAmountDesc(productId, quantity)
+                .stream()
+                .findFirst();
+    }
 }

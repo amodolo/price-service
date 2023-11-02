@@ -40,4 +40,11 @@ public class PercentageDiscountService implements DiscountService<PercentageDisc
     public void deleteById(UUID uuid) {
         repository.deleteById(uuid);
     }
+
+    @Override
+    public Optional<PercentageDiscount> findBestDiscountFor(UUID productId, int quantity) {
+        return repository.findByProductIdAndQuantityOrderedByAmountDesc(productId, quantity)
+                .stream()
+                .findFirst();
+    }
 }

@@ -97,4 +97,14 @@ class PercentageDiscountServiceTest {
         // then
         verify(repository).deleteById(expected);
     }
+
+    @Test
+    void findByProductId_givenId_delegateToRepository() {
+        // given
+        var expected = UUID.randomUUID();
+        // when
+        sut.findBestDiscountFor(expected, 1);
+        // then
+        verify(repository).findByProductIdAndQuantityOrderedByAmountDesc(expected, 1);
+    }
 }
