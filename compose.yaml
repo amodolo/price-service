@@ -3,10 +3,22 @@ services:
     image: 'postgres:latest'
     restart: always
     environment:
-      - 'POSTGRES_DB=price'
-      - 'POSTGRES_PASSWORD=password'
-      - 'POSTGRES_USER=admin'
+      POSTGRES_DB: price
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
     ports:
       - 5432:5432
     volumes:
       - ./docker/postgres:/docker-entrypoint-initdb.d
+
+  app:
+    build: .
+    depends_on:
+      - db
+    restart: always
+    environment:
+      DATASOURCE_URL: jdbc:postgresql://db:5432/price
+      DATASOURCE_USERNAME: admin
+      DATASOURCE_PASSWORD: password
+    ports:
+      - 8080:8080
