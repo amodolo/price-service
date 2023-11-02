@@ -25,7 +25,12 @@ public interface DiscountApi<T, C> {
     @ApiResponse(responseCode = "404", description = "The specified discount was not found", content = @Content(schema = @Schema()))
     T findById(UUID uuid);
 
-    @Operation(summary = "Create", description = "Create a new discount policy")
+    @Operation(summary = "Create", description = """
+            Create a new discount policy.
+            By specifying the productId in the policy, the discount is applied only to a specific product,while for all
+            others such a discount will not be available.
+            Instead, if no productId is indicated in the policy, the discount will be applicable to any product.
+            """)
     @ApiResponse(
             responseCode = "201",
             description = "Promo correctly created",
@@ -34,7 +39,12 @@ public interface DiscountApi<T, C> {
     @ApiResponse(responseCode = "400", description = "Invalid request")
     ResponseEntity<Void> create(@Valid C discount);
 
-    @Operation(summary = "Update by id", description = "Update a specific, existing discount policy.")
+    @Operation(summary = "Update by id", description = """
+            Update a specific, existing discount policy.
+            By specifying the productId in the policy, the discount is applied only to a specific product,while for all
+            others such a discount will not be available.
+            Instead, if no productId is indicated in the policy, the discount will be applicable to any product.
+            """)
     @ApiResponse(responseCode = "204", description = "Correctly updated")
     @ApiResponse(responseCode = "404", description = "The specified discount was not found")
     void updateById(UUID uuid, @Valid C discount);
