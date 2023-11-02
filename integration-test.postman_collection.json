@@ -1,0 +1,1458 @@
+{
+	"info": {
+		"_postman_id": "2caf0500-953b-4fef-bdb6-798288ec0226",
+		"name": "Price domain",
+		"description": "API catalog for the resources exposed by price microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4964907"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "value-discount",
+					"item": [
+						{
+							"name": "Find all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/value-discount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"value-discount"
+									]
+								},
+								"description": "Retrieve all configured discounts"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"productId\": \"<uuid>\",\n    \"quantity\": \"<integer>\",\n    \"amount\": \"<float>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"productId\": \"<uuid>\",\n    \"quantity\": \"<integer>\",\n    \"amount\": \"<float>\"\n  }\n]"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"value-discount",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": ""
+										}
+									]
+								},
+								"description": "Retrieve a specific, existing discount based on an identifier"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<uuid>\",\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"amount\": \"<float>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified discount was not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"quantity\": 1,\n  \"amount\": 50\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/value-discount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"value-discount"
+									]
+								},
+								"description": "Create a new discount policy"
+							},
+							"response": [
+								{
+									"name": "Promo correctly created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"amount\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Location",
+											"value": "",
+											"description": {
+												"content": "URL to get the promo",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"amount\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"quantity\": \"2\",\n  \"amount\": \"10\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"value-discount",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update a specific, existing discount policy."
+							},
+							"response": [
+								{
+									"name": "Correctly updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"amount\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"amount\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified discount was not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"amount\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"value-discount",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete a specific, existing discount policy."
+							},
+							"response": [
+								{
+									"name": "Policy correctly removed",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified policy was not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/value-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"value-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "percentage-discount",
+					"item": [
+						{
+							"name": "Find all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/percentage-discount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"percentage-discount"
+									]
+								},
+								"description": "Retrieve all configured discounts"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"productId\": \"<uuid>\",\n    \"quantity\": \"<integer>\",\n    \"percentage\": \"<integer>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"productId\": \"<uuid>\",\n    \"quantity\": \"<integer>\",\n    \"percentage\": \"<integer>\"\n  }\n]"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"percentage-discount",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Retrieve a specific, existing discount based on an identifier"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<uuid>\",\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"percentage\": \"<integer>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified discount was not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"quantity\": 1,\n  \"percentage\": 10\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/percentage-discount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"percentage-discount"
+									]
+								},
+								"description": "Create a new discount policy"
+							},
+							"response": [
+								{
+									"name": "Promo correctly created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"percentage\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Location",
+											"value": "",
+											"description": {
+												"content": "URL to get the promo",
+												"type": "text/plain"
+											}
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"percentage\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"quantity\": 2,\n  \"percentage\": 25\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"percentage-discount",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update a specific, existing discount policy."
+							},
+							"response": [
+								{
+									"name": "Correctly updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"percentage\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"percentage\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified discount was not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<uuid>\",\n  \"quantity\": \"<integer>\",\n  \"percentage\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"percentage-discount",
+										":uuid"
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": "",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete a specific, existing discount policy."
+							},
+							"response": [
+								{
+									"name": "Policy correctly removed",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "The specified policy was not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/percentage-discount/:uuid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"percentage-discount",
+												":uuid"
+											],
+											"variable": [
+												{
+													"key": "uuid"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "price",
+					"item": [
+						{
+							"name": "Get the product price",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/price/:productId?quantity=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"price",
+										":productId"
+									],
+									"query": [
+										{
+											"key": "quantity",
+											"value": "1",
+											"description": "amount of products added in the order"
+										}
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "a670eb1d-4cbd-4a9f-aecc-42e5ab42ce46",
+											"description": "(Required) product identifier"
+										}
+									]
+								},
+								"description": "Returns the final price of the given product considering the amount of items added in the order."
+							},
+							"response": [
+								{
+									"name": "Successfully retrieve the product price ",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/price/:productId?quantity=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"price",
+												":productId"
+											],
+											"query": [
+												{
+													"key": "quantity",
+													"value": "1",
+													"description": "amount of products added in the order"
+												}
+											],
+											"variable": [
+												{
+													"key": "productId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"stockPrice\": \"<float>\",\n  \"finalPrice\": \"<float>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/v1/price/:productId?quantity=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"price",
+												":productId"
+											],
+											"query": [
+												{
+													"key": "quantity",
+													"value": "1",
+													"description": "amount of products added in the order"
+												}
+											],
+											"variable": [
+												{
+													"key": "productId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

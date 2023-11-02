@@ -35,3 +35,11 @@ insert into product
 values ('a42caa5c-bb33-434b-b7fd-08d831b3883c', 'iPhone 13', 599);
 insert into product
 values ('5a1928cd-87f2-423d-8c5b-aa9c5b8fe947', 'iPhone SE', 429);
+insert into value_discount
+values ('114c6e32-9dbe-454e-b6e9-7db11da5b685', '5a1928cd-87f2-423d-8c5b-aa9c5b8fe947', 1, 10);
+insert into value_discount
+values ('82497aad-032f-4c23-aa2c-409fab8e9f94', '5a1928cd-87f2-423d-8c5b-aa9c5b8fe947', 2, 25);
+insert into value_discount
+values ('3f5459fa-2488-4c4c-bce2-7dcb50291010', '5a1928cd-87f2-423d-8c5b-aa9c5b8fe947', 3, 50);
+insert into percentage_discount
+values ('395e3c49-713a-4330-ac0d-5d6718cb3b72', null, 2, 2);
